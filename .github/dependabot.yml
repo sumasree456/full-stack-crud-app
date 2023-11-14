@@ -37,7 +37,7 @@ groups:
       - "dependencies"
       - "node"
   - name: "backend"
-    package-ecosystem: "ruby"
+    package-ecosystem: "npm"
     directory: "/backend"
     schedule:
       interval: "weekly"
