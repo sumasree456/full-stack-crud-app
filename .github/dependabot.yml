@@ -3,10 +3,43 @@
 # Please see the documentation for all configuration options:
 # https://docs.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
 
+# version: 2
+# updates:
+#   - package-ecosystem: "npm" # See documentation for possible values
+#     directory: "/" # Location of package manifests
+#     schedule:
+#       interval: "weekly"
+#     open-pull-requests-limit: 100
+# dependabot.yml
+
 version: 2
 updates:
-  - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "dependencies"
+      - "node"
+  - package-ecosystem: "ruby"
+    directory: "/"
     schedule:
       interval: "weekly"
-    open-pull-requests-limit: 100
+    labels:
+      - "dependencies"
+groups:
+  - name: "frontend"
+    package-ecosystem: "npm"
+    directory: "/frontend"
+    schedule:
+      interval: "daily"
+    labels:
+      - "dependencies"
+      - "node"
+  - name: "backend"
+    package-ecosystem: "ruby"
+    directory: "/backend"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependencies"
